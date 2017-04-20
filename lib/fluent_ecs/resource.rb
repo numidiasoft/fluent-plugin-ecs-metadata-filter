@@ -12,6 +12,7 @@ module FluentECS
       attr_accessor :resource_endpoint
 
       def get
+        base_uri  ENV["BASE_URI"] unless ENV["BASE_URI"].nil?
         response = super(resource_endpoint)
         if response.success?
           response.parsed_response
